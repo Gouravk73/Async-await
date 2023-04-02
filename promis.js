@@ -6,36 +6,14 @@ const preMovie =async ()=>{
         setTimeout(()=>resolve('ticket'),3000)
     });
     const getPopcorn=new Promise((resolve, reject)=>resolve(`popcorn` ));
-    const addButter= new Promise((resolve, reject) => resolve(`butter`) );
-    const getColdDrinks= new Promise((resolve, reject) => resolve(`Cold Drinks`) );
+    const getCandy= new Promise((resolve, reject) => resolve(`Candy`) );
+    const getCoke= new Promise((resolve, reject) => resolve(`Coke`) );
 
     let ticket = await promiseWifeBringsTickets;
-        console.log('wife:I have the tickets');
-        console.log('Husband: we should go in');
-        console.log('wife:no i am hungry');
+       
 
-    let popcorn=await getPopcorn;
-
-
-
-    console.log("Husband: I got some popcorn ");
-    console.log("Husband: we should go in");
-    console.log("Wife:no I need butter on my popcorn");
-
-    let butter = await addButter;
-    console.log("Husband: I got some butter on popcorn ");
-    console.log("Husband: anything else darling?");
-    console.log("Wife: Yeah i need cold drink too");
-    console.log("Husband: Sure wait");
-
-    let coldDrink = await getColdDrinks;
-
-    console.log("Husband: I got cold drinks ");
-    console.log("Husband: anything else darling?");
-    console.log("Wife: lets go we are getting late");
-    console.log("Husband:thank you for reminder");
-
-    
+    let [popcorn,candy,coke]=await Promise.all([getPopcorn,getCandy,getCoke]);
+    console.log(`${popcorn} ${candy} ${coke}`);
     return ticket;
 };
 
