@@ -7,7 +7,7 @@ const preMovie =async ()=>{
     });
     const getPopcorn=new Promise((resolve, reject)=>resolve(`popcorn` ));
     const addButter= new Promise((resolve, reject) => resolve(`butter`) );
-    const getColdDrinks= new Promise((resolve, reject) => resolve(`butter`) );
+    const getColdDrinks= new Promise((resolve, reject) => resolve(`Cold Drinks`) );
 
     let ticket = await promiseWifeBringsTickets;
         console.log('wife:I have the tickets');
