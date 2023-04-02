@@ -3,9 +3,19 @@ console.log("Person2: show ticket");
 
 const preMovie =async ()=>{
     const promiseWifeBringsTickets=new Promise((resolve, reject)=>{
-        setTimeout(()=>resolve('ticket'),3000)
+        setTimeout(()=>reject('ticket'),3000)
     });
-    const getPopcorn=new Promise((resolve, reject)=>resolve(`popcorn` ));
+
+    let ticket;
+    try{
+        ticket = await promiseWifeBringsTickets;
+    }
+    catch(e){
+        ticket = 'Sad face';
+    }
+
+
+   /* const getPopcorn=new Promise((resolve, reject)=>resolve(`popcorn` ));
     const getCandy= new Promise((resolve, reject) => resolve(`Candy`) );
     const getCoke= new Promise((resolve, reject) => resolve(`Coke`) );
 
@@ -13,7 +23,7 @@ const preMovie =async ()=>{
        
 
     let [popcorn,candy,coke]=await Promise.all([getPopcorn,getCandy,getCoke]);
-    console.log(`${popcorn} ${candy} ${coke}`);
+    console.log(`${popcorn} ${candy} ${coke}`);*/
     return ticket;
 };
 
